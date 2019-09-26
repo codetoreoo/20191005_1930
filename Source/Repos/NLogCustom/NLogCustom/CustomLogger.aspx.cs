@@ -56,7 +56,7 @@ namespace NLogCustom
 
         public CustomizedNLog(string account)
         {
-            //set 
+            //set (目前不知道為什麼要這樣設定，先留著吧)
             logger.SetCustomerId(account);
 
             //record log
