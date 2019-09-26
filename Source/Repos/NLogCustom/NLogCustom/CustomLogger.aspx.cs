@@ -18,7 +18,7 @@ namespace NLogCustom
         protected void Page_Load(object sender, EventArgs e)
         {
             BaseNLog blog = new BaseNLog();
-            //etMsgInCusLog slog = new SetMsgInCusLog();
+            CustomizedNLog clog = new CustomizedNLog("549714084");
         }
     }
 
@@ -41,9 +41,9 @@ namespace NLogCustom
         }
     }
 
-    public class SetMsgInCusLog : Logger
+    public class SetLogger_MappedDiagnosticsContext : Logger
     {
-        public void SetCustomerId(int CustomerId)
+        public void SetCustomerId(string CustomerId)
         {
             //https://github.com/nlog/NLog/wiki/Mdc-Layout-Renderer
             MappedDiagnosticsContext.Set("CustomerId", CustomerId);
@@ -52,11 +52,18 @@ namespace NLogCustom
 
     public class CustomizedNLog
     {
-        private readonly SetMsgInCusLog setLog = (SetMsgInCusLog)LogManager.GetCurrentClassLogger(typeof(SetMsgInCusLog));
+        private readonly SetLogger_MappedDiagnosticsContext logger = (SetLogger_MappedDiagnosticsContext)LogManager.GetCurrentClassLogger(typeof(SetLogger_MappedDiagnosticsContext));
 
-        public CustomizedNLog() {            
-            setLog.SetCustomerId(549714084);
-            setLog.Info("會員{0}已成功登入");
+        public CustomizedNLog(string account)
+        {
+            //set 
+            logger.SetCustomerId(account);
+
+            //record log
+            logger.Info("---------------------------------------");
+            logger.Info(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            logger.Info("會員: {0} 已成功登入", account);
+            logger.Info("---------------------------------------");
         }        
     }
 }
