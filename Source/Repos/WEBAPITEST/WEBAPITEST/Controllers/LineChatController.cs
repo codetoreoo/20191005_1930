@@ -11,7 +11,7 @@ namespace WEBAPITEST.Controllers
         [HttpPost]
         public IHttpActionResult POST()
         {
-            string ChannelAccessToken = "YbgUy6ucRMSNGbpZ5Tb3o+AnK2dOaKCLsAoqU1mYL+w7wYaKVfwVj9oYBh3JJ0UsAF+wfQW6j+GqfYUSqQI7omQH5DBT8mrP1wLfdwoRb6E/baWJ8Dtt/8IQICuRn4E6tOKhXxrys5K9EOqghHhh2AdB04t89/1O/w1cDnyilFU=";
+            string ChannelAccessToken = "mG2oxKhG0aBbsw+uuyMXj5N0lEPS6WFjuVyZl8BJrXRJBdOgdRnBXirPpR93wfLjAF+wfQW6j+GqfYUSqQI7omQH5DBT8mrP1wLfdwoRb6E8vW0/jRrn9czwjuA6jMIf5hCA8zRv6APq5AWdhI2bWgdB04t89/1O/w1cDnyilFU=";
             try
             {
                 //取得 http Post RawData(should be JSON)
